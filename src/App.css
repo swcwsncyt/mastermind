@@ -1,38 +1,147 @@
+html {
+  background-color: black;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .App {
+  display: flex;
+  justify-content: center;
+  height: 470px;
+}
+
+table {
+  width: 200px;
+  border-collapse: collapse;
+  margin-right: 10px;
+}
+
+.answer {
+  height: 40px;
+}
+
+.answer th {
+  border: 1px solid #4AF626;
+  color: #4AF626;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.answer th span {
+  letter-spacing: 5px;
+}
+
+.combination {
+  color: #4AF626;
+  vertical-align: auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.feedback {
+  height: 38px;
+  width: 38px;
+  text-align: center;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.feedback br {
+  padding: 0;
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.feedback span {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.guess-input {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.guess {
+  vertical-align: top;
+}
+
+.guess-input input {
+  width: 20px;
+  height: 20px;
+}
+
+.guess-row {
+  border: 1px solid #4AF626;
+  height: 39px;
+}
+
+.instructions-group {
+  color:#4AF626;
+  border: 1px solid #4AF626;
+  width: 200px;
+}
+
+.instructions {
+  height: 80%;
+  width: 200px;
+}
+
+.instructions p {
+  margin: 0;
+  padding-top: 5px;
+  padding-left: 5px;
+  font-size: 13px;
+}
+
+.mode-btn-group {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 20%;
+}
+
+.mode-btn-group button {
+  width: 180px;
+  height: 30px;
+  margin-top: 12px;
+  border: 1px solid #4AF626;
+  background-color: black;
+  color: #4AF626;
+}
+
+.mode-btn-group button:hover {
+  background-color: #4AF626;
+  color: black;
+}
+
+.result-group {
+  position:absolute;
+  background-color: black;
+  border: 1px solid #4AF626;
+  color: #4AF626;
+  top: 30%;
+  width: 500px;
+  height: 250px;
+  text-align: center;
+}
+
+.result {
+  height: 80%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.newgame-btn button {
+  width: 180px;
+  height: 30px;
+  margin-top: 12px;
+  border: 1px solid #4AF626;
+  background-color: black;
+  color: #4AF626;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.newgame-btn button:hover {
+  background-color: #4AF626;
+  color: black;
 }
