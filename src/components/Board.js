@@ -12,25 +12,23 @@ const Board = ({boardSize, gameover, setGameover, setResult, reset, setReset}) =
   //run when boardSize changed
   useEffect(()=> {
     generateEmptyBoard(boardSize);
+    setGuessCount(boardSize[0] - 1);
   },[boardSize])
+
   //run once on page load
   useEffect(() => {
     generateRandomInt();
   },[])
 
-  //run when reset changed
   useEffect(() => {
-    if(reset) {
-      resetBoard();
-      setReset(false);
-    }
+    resetBoard(reset)
   },[reset])
 
   //api call to generate random integer
   const generateRandomInt = () => {
     axios.get("https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new")
     .then((result) => {
-      // console.log(result.data)
+      console.log(result.data)
       //convert string to array
       setAnswer(result.data.substring(0, result.data.length - 1).split("\n"))
     })
@@ -39,31 +37,38 @@ const Board = ({boardSize, gameover, setGameover, setResult, reset, setReset}) =
   //2D matrix board (r x c) fill with empty string
   const generateEmptyBoard = ([r, c]) => {
     const matrixBoard = Array(r).fill(Array(c).fill(""));
-    setBoard(matrixBoard)
+    setBoard(matrixBoard);
   }
 
-  const resetBoard = () => {
-    //regenerate answer
-    generateRandomInt();
-    //reset the board
-    generateEmptyBoard(boardSize);
-    //reset the count
-    setGuessCount(0);
-  }
-
-  //if child send back a true signal, last guess is incorrect
-  //change the wording of the end game pop up
-  const generateResult = (lost) => {
-    if(lost) setResult("lost")
-    setGameover(true);
-  }
-  
   //make guess where input is submitted
   const makeGuess = (inputArr) => {
     const copyOfBoard = [...board];
-    copyOfBoard[copyOfBoard.length -1 - guessCount] = inputArr;
-    setGuessCount(guessCount+1)
+    copyOfBoard[guessCount] = inputArr;
+    setGuessCount(guessCount - 1)
     setBoard(copyOfBoard);
+    checkEndGame(inputArr);
+
+    function checkEndGame (input) {
+      for(let i = 0; i < boardSize[1]; i++) {
+        if(answer[i] !== input[i]) {
+          if(guessCount === 0) {
+            setResult("lost");
+            setGameover(true);
+          }
+          return;
+        }
+      }
+      if(answer.length) setGameover(true);
+    }
+  }
+
+  const resetBoard = (reset) => {
+    if(reset) {
+      generateRandomInt();
+      generateEmptyBoard(boardSize);
+      setGuessCount(boardSize[0] - 1);
+      setReset(false);
+    }
   }
 
   return (
@@ -73,7 +78,7 @@ const Board = ({boardSize, gameover, setGameover, setResult, reset, setReset}) =
       </thead>
       <tbody>
         {board.map((guessInfo, i) => {
-          return <GuessRow key={i} guessInfo={guessInfo} answer={answer} generateResult={generateResult} boardLen={board.length} guessCount={guessCount}/>
+          return <GuessRow key={i} guessInfo={guessInfo} answer={answer}/>
         })}
         <tr>
           <td className="guess" colSpan="2">

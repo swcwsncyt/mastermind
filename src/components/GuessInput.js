@@ -38,6 +38,7 @@ const GuessInput = ({makeGuess, gameover}) => {
     makeGuess(input);
     //reset the input
     setInput(["", "", "", ""]);
+    //move cursor back to the first input box
     e.target.firstChild.focus();
   }
 

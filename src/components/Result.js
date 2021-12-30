@@ -1,4 +1,4 @@
-const Result = ({result, resetApp}) => {
+const Result = ({result, reset}) => {
 
   const results = {
     won: "Congratulations!\nYou cracked the code.",
@@ -6,7 +6,7 @@ const Result = ({result, resetApp}) => {
   }
 
   const handleNewGameOnClick = () => {
-    resetApp();
+    reset(true);
   }
 
   return (

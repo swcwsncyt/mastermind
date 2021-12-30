@@ -1,22 +1,7 @@
-import { useEffect } from "react";
 import Combination from "./Combination.js";
 import Feedback from "./Feedback.js";
 
-const GuessRow = ({answer, guessInfo, generateResult, boardLen, guessCount}) => {
-  
-  useEffect(() => {
-    //when last guess is incorrect, send a signal to parent method
-    if(!checkEndGame() && (boardLen === guessCount)) generateResult(true);
-  }, [guessInfo])
-  
-  const checkEndGame = () => {
-    for(let i = 0; i < guessInfo.length; i++) {
-      if(answer[i] !== guessInfo[i]) return false;
-    }
-    if(answer.length) generateResult();
-    return true;
-  }
-  
+const GuessRow = ({answer, guessInfo}) => {
   //compare guess to answer and generate a style list to display feedback dot
   const generateStyleListFromGuess = (ans, guessCombo) => {
     let styleList = [];

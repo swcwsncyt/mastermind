@@ -1,4 +1,4 @@
-const Instructions = ({setBoardSize, resetApp}) => {
+const Instructions = ({setBoardSize, reset}) => {
   
   const modeChangeOnClick = (e) => {
     if(e.target.value === "extreme") {
@@ -7,7 +7,7 @@ const Instructions = ({setBoardSize, resetApp}) => {
       setBoardSize([10,4]);
     }
     //trigger reset function in board
-    resetApp();
+    reset(true);
   }
 
   return (
