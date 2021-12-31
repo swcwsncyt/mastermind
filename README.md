@@ -1,6 +1,12 @@
 # Mastermind
 This code cracking game is based on the board game Mastermind
 
+# Table of Contents
+1. [Run and Build](#run-and-build)
+2. [Thought Process](#thought-process)
+3. [Components](#components)
+4. [Some Exmaple Flows](#some-example-flows)
+
 # Run and Build
 The app is created using:
 - nodejs v17.3.0
@@ -23,7 +29,10 @@ npm install
 ```
 npm start
 ```
-App should open a new tab on browser automatically at localhost:3000
+App should open a new tab on browser automatically at localhost:3000<br>
+<br>
+
+[Back to Top](#mastermind)
 
 # Thought Process
 Requirements: 
@@ -101,6 +110,8 @@ Test Cases
 > Game mode
 > 1. Click on the Normal or Extreme mode should empty the board and generate a new random answer
 
+[Back to Top](#mastermind)
+
 # Components
 
 App.js
@@ -177,6 +188,8 @@ Combination.js
 Feedback.js
 > This will render one feedback using the style and val props passed in from parent GuessRow.js
 
+[Back to Top](#mastermind)
+
 # Some Example Flows
 User enter a combination (make a guess)
 > 1. GuessInput onSubmit
@@ -209,3 +222,5 @@ User click on game mode
 > 3. Board
 >    - change in boardSize trigger generate a new empty board and reset guessCount
 >    - trigger GuessRow to rerender
+
+[Back to Top](#mastermind)
