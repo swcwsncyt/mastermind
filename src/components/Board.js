@@ -28,7 +28,7 @@ const Board = ({boardSize, gameover, setGameover, setResult, reset, setReset}) =
   const generateRandomInt = () => {
     axios.get("https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new")
     .then((result) => {
-      console.log(result.data)
+      // console.log(result.data) //debug purpose
       //convert string to array
       setAnswer(result.data.substring(0, result.data.length - 1).split("\n"))
     })
