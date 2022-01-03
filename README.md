@@ -8,9 +8,13 @@ This code cracking game is based on the board game Mastermind
 4. [Some Exmaple Flows](#some-example-flows)
 
 # Run and Build
+Prerequisite:
+- Node.js
+- NPM
+
 The app is created using:
-- nodejs v17.3.0
-- npm v8.3.0
+- Nodejs v17.3.0
+- NPM v8.3.0
 
 To build the app run the following step:
 1. Clone the repo
@@ -46,7 +50,7 @@ Extensions:
 2. Styling UI to imitate a terminal
 
 
-> After listing out the requirement and extensions I wanted to attempted. I decided to create a structure map to brainstorm what components I might need and create the base frame of the app.
+> After listing out the requirement and extensions I wanted to attempt. I decided to create a structure map to brainstorm what components I might need and create the base frame of the app.
 
 ![](./readmeAsset/structureMap.png)
 
@@ -109,6 +113,7 @@ Test Cases
 > 
 > Game mode
 > 1. Click on the Normal or Extreme mode should empty the board and generate a new random answer
+> 2. Mode change when there is entry on the board should also empty board and generate a new random answer
 
 [Back to Top](#mastermind)
 
